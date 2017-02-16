@@ -18,9 +18,10 @@ def get_long_description():
             descr.append(f.read())
     return '\n\n'.join(descr)
 
+
 install_requires = ['flake8']
 
-test_requires = ['nose', 'flake8>=1.5', 'pycodestyle']
+test_requires = ['nose']
 
 setup(
     name='flake8-print',
@@ -36,7 +37,7 @@ setup(
     zip_safe=False,
     entry_points={
         'flake8.extension': [
-            'flake8_print = flake8_print:print_usage',
+            'flake8_print = flake8_print:PrintStatementChecker',
         ],
     },
     install_requires=install_requires,

@@ -7,19 +7,11 @@ python:
   - "3.5"
 
 env:
+  global:
   matrix:
-    - FLAKE8_VERSION=""
-    - FLAKE8_VERSION="1.5"
-    - FLAKE8_VERSION="2.1"
-    - FLAKE8_VERSION="3.2.1"
-
-matrix:
-  exclude:
-    - python: "3.5"
-      env: FLAKE8_VERSION="1.5"
+    - PRINT_FUTURE="0"
+    - PRINT_FUTURE="1"
 
 install:
-  - pip install pycodestyle
-  - if [[ -n "$FLAKE8_VERSION" ]]; then pip install flake8=="$FLAKE8_VERSION"; fi
   - python setup.py install
 script: "nosetests"
